@@ -9,7 +9,7 @@ import (
 type UserRepository interface {
 	Add(ctx context.Context, user User) (ID, error)
 	GetById(ctx context.Context, id ID) (User, error)
-	UpdateByID(ctx context.Context, user User) error
+	UpdateByID(ctx context.Context, id ID, user User) error
 	DeleteByID(ctx context.Context, id ID) error
 	GetAll(ctx context.Context, id ID) ([]User, error)
 }
@@ -37,7 +37,7 @@ func (ur *InMermoryUserRepository) GetById(ctx context.Context, id ID) (User, er
 	return User{}, ErrNotImplemented
 }
 
-func (ur *InMermoryUserRepository) UpdateByID(ctx context.Context, user User) error {
+func (ur *InMermoryUserRepository) UpdateByID(ctx context.Context, id ID, user User) error {
 	return ErrNotImplemented
 }
 

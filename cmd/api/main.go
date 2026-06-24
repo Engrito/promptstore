@@ -9,6 +9,12 @@ import (
 
 func routes(userHanlders user.UserHandlers) *gin.Engine {
 	r := gin.Default()
+	r.POST("/api/v1/user/signup", userHanlders.Singup)
+	r.GET("/api/v1/user/login", userHanlders.Login)
+	r.GET("/api/v1/user", userHanlders.GetById)
+	r.GET("/api/v1/user/users", userHanlders.GetAll)
+	r.PATCH("/api/v1/user/", userHanlders.UpdateByID)
+	r.DELETE("/api/v1/user", userHanlders.DeleteByID)
 	return r
 }
 

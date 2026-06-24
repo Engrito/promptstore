@@ -11,7 +11,13 @@ type UserService interface {
 }
 
 type Service struct {
-	Service UserService
+	Service UserRepository
+}
+
+func NewService(repo UserRepository) *Service {
+	return &Service{
+		Service: repo,
+	}
 }
 
 func (s *Service) Add(ctx context.Context, user User) (ID, error) {

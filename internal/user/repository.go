@@ -11,7 +11,7 @@ type UserRepository interface {
 	GetById(ctx context.Context, id ID) (User, error)
 	UpdateByID(ctx context.Context, id ID, user User) error
 	DeleteByID(ctx context.Context, id ID) error
-	GetAll(ctx context.Context, id ID) ([]User, error)
+	GetAll(ctx context.Context) ([]User, error)
 }
 
 var (
@@ -45,6 +45,6 @@ func (ur *InMermoryUserRepository) DeleteByID(ctx context.Context, id ID) error 
 	return ErrNotImplemented
 }
 
-func (ur *InMermoryUserRepository) GetAll() ([]User, error) {
+func (ur *InMermoryUserRepository) GetAll(ctx context.Context) ([]User, error) {
 	return []User{}, ErrNotImplemented
 }
